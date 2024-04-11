@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/images/icons/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="static/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/MagnificPopup/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+</head>
+<body>
+    <header class="header-v4">
+        <div class="container-menu-desktop">
+            <div class="top-bar">
+                <div class="content-topbar flex-sb-m h-full container">
+                    <div class="left-top-bar">
+                        Free shipping for standard order over $100,000,000
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-menu-desktop how-shadow1">
+                <nav class="limiter-menu-desktop container">
+                    <a href="#" class="logo">
+                        <img src="static/images/my_logo.png" alt="IMG-LOGO">
+                    </a>
+                    <div class="menu-desktop">
+                        <ul class="main-menu">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/apod">Pic of the day!</a></li>
+                            <li><a href="/cart">Cart</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                            <li class="active-menu label1" data-label1="hot"><a href="/store">Shop</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>  
+        </div>
+    </header>
+
+    <div class="wrap-header-cart js-panel-cart">
+        <div class="s-full js-hide-cart"></div>
+        <div class="header-cart flex-col-l p-l-65 p-r-25">
+            <div class="header-cart-title flex-w flex-sb-m p-b-8">
+                <span class="mtext-103 cl2">Your Cart</span>
+                <div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+                    <i class="zmdi zmdi-close"></i>
+                </div>
+            </div>
+            <div class="header-cart-content flex-w js-pscroll">
+                <ul class="header-cart-wrapitem w-full">
+                    {% for item in cart_items %}
+                    <li class="header-cart-item flex-w flex-t m-b-12">
+                        <div class="header-cart-item-img">
+                            <img src="static/images/item-cart-01.jpg" alt="IMG">
+                        </div>
+                        <div class="header-cart-item-txt p-t-8">
+                            <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">{{ item.name }}</a>
+                            <span class="header-cart-item-info">{{ item.price }}</span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="w-full">
+                    <div class="header-cart-total w-full p-tb-40">Total: ${{ total_price }}</div>
+                    <div class="header-cart-buttons flex-w w-full">
+                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">View Cart</a>
+                        <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">Check Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg0 m-t-23 p-b-140">
+        <div class="container">
+            <div class="row isotope-grid">
+                {% for product in products %}
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                    <form action="/add_to_cart/{{ loop.index0 }}" method="POST">
+                        <div class="block2">
+                            <div class="block2-pic hov-img0">
+                                <img src="{{ product.image }}" alt="IMG-PRODUCT">
+                            </div>
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l">
+                                    <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04">{{ product.name }}</a>
+                                    <span class="stext-105 cl3">{{ product.price }}</span>
+                                </div>
+                                <div class="block2-txt-child2 flex-r p-t-3">
+                                    <button type="submit" name="add" value="{{ loop.index0 }}" class="btn btn-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg3 p-t-75 p-b-32">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
+                    <p class="stext-107 cl7 size-201">Any questions? Let us know in store at Mars</p>
+                    <div class="p-t-27">
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 p-b-50">
+                    <h4 class="stext-301 cl0 p-b-30">Newsletter</h4>
+                    <form>
+                        <div class="wrap-input1 w-full p-b-4">
+                            <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+                            <div class="focus-input1 trans-04"></div>
+                        </div>
+                        <div class="p-t-18">
+                            <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top"><i class="zmdi zmdi-chevron-up"></i></span>
+    </div>
+
+    <script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="static/vendor/animsition/js/animsition.min.js"></script>
+    <script src="static/vendor/bootstrap/js/popper.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/vendor/daterangepicker/moment.min.js"></script>
+    <script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="static/vendor/slick/slick.min.js"></script>
+    <script src="static/vendor/parallax100/parallax100.js"></script>
+    <script src="static/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="static/vendor/sweetalert/sweetalert.min.js"></script>
+    <script src="static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

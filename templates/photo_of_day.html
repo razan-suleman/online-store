@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="static/fonts/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/MagnificPopup/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="static/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+</head>
+<body class="animsition">
+	
+	<header>
+		<div class="container-menu-desktop">
+			<div class="top-bar">
+				<div class="content-topbar flex-sb-m h-full container">
+					<div class="left-top-bar">
+						Free shipping for standard order over $100,000,000
+					</div>
+				</div>
+			</div>
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
+					<a href="#" class="logo">
+						<img src="static/images/my_logo.png" alt="IMG-LOGO">
+					</a>
+					<div class="menu-desktop">
+            			<ul class="main-menu">
+                			<li>
+                    			<a href="/">Home</a>
+                			</li>
+                			<li class="active-menu">
+                    			<a href="/apod">Pic of the day!</a>
+                			</li>
+                			{% if logged_in %}
+                			<li>
+                    			<a href="/cart">Cart</a>
+                			</li>
+                			<li>
+                    			<a href="/logout">Logout</a>
+                			</li>
+                			<li class="label1" data-label1="hot">
+                    			<a href="/store">Shop</a>
+                			</li>
+                			{% else %}
+                			<li>
+                    			<a href="/signup">Sign up</a>
+                			</li>
+                			<li>
+                    			<a href="/signin">Sign in</a>
+                			</li>
+                			{% endif %}
+            			</ul>
+        			</div>
+				</nav>
+			</div>	
+		</div>
+	</header>
+
+	<div class="bg0 m-t-23 p-b-140">
+		<div class="container">
+			<section class="sec-product-detail bg0 p-t-65 p-b-60">
+				<div class="container">
+					<div class="flex-w flex-sb-m p-b-52">
+						<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="image-of-the-day">
+											<h3>Nasa's image of the day!</h3>
+											<img id="nasa-image" src="{{ image_url }}" alt="NASA Image of the Day">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at Mars
+					</p>
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="static/vendor/slick/slick.min.js"></script>
+	<script src="static/js/slick-custom.js"></script>
+	<script src="static/vendor/parallax100/parallax100.js"></script>
+	<script>
+		$('.parallax100').parallax100();
+	</script>
+	<script src="static/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
+		$('.gallery-lb').each(function() {
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled:true
+				},
+				mainClass: 'mfp-fade'
+			});
+		});
+	</script>
+	<script src="static/vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="static/vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	</script>
+	<script src="static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+	<script src="static/js/main.js"></script>
+</body>
+</html>
