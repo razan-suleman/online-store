@@ -135,10 +135,10 @@ def cart():
     cart = db.child("Cart").child(login_session.get('user', {}).get('localId')).get().val()
 
     if cart is None or len(cart) == 0:
-        return render_template("cart.html", empty_cart=True, logged_in=is_user_logged_in())
-    total = sum(float(product['price'].replace('$', '').replace(',', '')) for product in cart)
+        return render_template("cart.html", empty_cart=True, logged_in=is_user_logged_in(), total=0)
     
-    return render_template("cart.html", cart=cart, logged_in=is_user_logged_in(), total=total)
+    total = sum(float(product['price'].replace('$', '').replace(',', '')) for product in cart)
+    return render_template("cart.html", total=total, empty_cart=True, logged_in=is_user_logged_in(), cart=cart)
 
 if __name__ == '__main__':
     app.run(debug=True)
